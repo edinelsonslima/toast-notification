@@ -50,24 +50,28 @@ export default function MyComponent(){
 
 ## 🧐 Informações adicionais
 
+
+#### O que é disponível com o pacote
 | função             | propriedades                                               |
 |--------------------|------------------------------------------------------------|
 | ToastContainer     | `classNames` `position`                                    |
 | toast              | `text` `type` `duration`                                   |
+| style              | `/dist/style.css`                                   |
 
-|                    | toast                                                      |
+#### As propriedades da função toast
+|propriedade         | toast                                                      |
 |--------------------|----------------------------------------------------------- |
 | text               | A mensagem que aparecerá dentro do toast                   |
 | type               | Define o tipo de toast que é para aparecer                 |
 | duration           | O tempo que o toast irá permanecer em tela                 |
 
-|                    | ToastContainer                                             |
+#### As propriedades do componente ToastContainer
+|propriedade         | ToastContainer                                             |
 |--------------------|----------------------------------------------------------- |
 | classNames         | Um objeto de **chave:valor** onde a chave é o tipo de toast e o valor pode ser uma string (classNames) ou um objeto (CSSProperties) |
 | position           | Define em qual parte da tela irá aparecer a toast notification, existe valores predefinidos |
 
-
-
+#### Mais detalhes sobre as propriedades
 | propriedade |tipo   | é obrigatório   | padrão      |
 |-------------|-------|-----------------|-------------|
 | text        |string | sim             |     -       |
@@ -77,7 +81,6 @@ export default function MyComponent(){
 | position    |string | não             | right-top   |
 
 ℹ️ O  `duration` está em ms (milissegundos)
-
 
 ℹ️ A função `toast` pode ser chamada de duas forma, veja os exemplos a seguir:
 
