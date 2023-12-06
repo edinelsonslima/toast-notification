@@ -6,12 +6,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/edinelsonslima/-edinelsonslima/tree/main/toast-notification.git"
+    "url": "git+https://github.com/edinelsonslima/toast-notification.git"
   },
   "bugs": {
-    "url": "https://github.com/edinelsonslima/-edinelsonslima/tree/main/toast-notification/issues"
+    "url": "https://github.com/edinelsonslima/toast-notification/issues"
   },
-  "homepage": "https://github.com/edinelsonslima/-edinelsonslima/tree/main/toast-notification#readme",
+  "homepage": "https://github.com/edinelsonslima/toast-notification#readme",
   "main": "dist/toast-notification.umd.js",
   "module": "dist/toast-notification.es.js",
   "types": "dist/index.d.ts",
