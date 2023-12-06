@@ -1,30 +1,92 @@
-# React + TypeScript + Vite
+# Toast Notifications
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## ⤵️ Instalando
 
-Currently, two official plugins are available:
+```
+yarn add @edinelsonslima/toast-notification
+```
+```
+npm install @edinelsonslima/toast-notification
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 👨🏻‍💻 Modo de usar
+- Adicione o componente `<ToastContainer/>` em algum lugar da sua aplicação;
+- Importe os estilos css de `import '@edinelsonslima/toast-notification/dist/style.css'`;
 
-## Expanding the ESLint configuration
+```tsx
+import { ToastContainer } from '@edinelsonslima/toast-notification';
+import '@edinelsonslima/toast-notification/dist/style.css';
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+export default function App(){
+  //seu código
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
+  return (
+    <>
+      <ToastContainer />
+    </>
+  )
 }
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Disparando os toast com a função `toast` de dentro do `@edinelsonslima/toast-notification`
+
+```tsx
+import { toast } from '@edinelsonslima/toast-notification';
+
+export default function MyComponent(){
+  //seu código
+
+  const examapleToast = () => {
+    toast.success({ text: "Mensagem de exemplo" })
+  }
+
+  return (
+    //seu código
+  )
+}
+```
+
+## 🧐 Informações adicionais
+
+| função             | propriedades                                               |
+|--------------------|------------------------------------------------------------|
+| ToastContainer     | `classNames` `position`                                    |
+| toast              | `text` `type` `duration`                                   |
+
+|                    | toast                                                      |
+|--------------------|----------------------------------------------------------- |
+| text               | A mensagem que aparecerá dentro do toast                   |
+| type               | Define o tipo de toast que é para aparecer                 |
+| duration           | O tempo que o toast irá permanecer em tela                 |
+
+|                    | ToastContainer                                             |
+|--------------------|----------------------------------------------------------- |
+| classNames         | Um objeto de **chave:valor** onde a chave é o tipo de toast e o valor pode ser uma string (classNames) ou um objeto (CSSProperties) |
+| position           | Define em qual parte da tela irá aparecer a toast notification, existe valores predefinidos |
+
+
+
+| propriedade |tipo   | é obrigatório   | padrão      |
+|-------------|-------|-----------------|-------------|
+| text        |string | sim             |     -       |
+| type        |string | sim             |     -       | 
+| duration    |number | não             | 7_0000      |
+| classNames  |object | não             | undefined   |
+| position    |string | não             | right-top   |
+
+ℹ️ O  `durantion` está em ms (milissegundos)
+
+
+ℹ️ A função `toast` pode ser chamada de duas forma, veja os exemplos a seguir:
+
+caso seja chamada direta, será obrigatório informa o **type**
+```ts
+toast({ text: "mensagem exemplo", type: "info", durantion: 1000 * 4 })
+```
+ou pode acessar o tipo do toast diretamente, assim omitindo ele do objeto enviado
+```ts
+toast.info({ text: "mensagem exemplo", durantion: 1000 * 4 })
+```
+
+
+
