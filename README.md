@@ -2,9 +2,11 @@
 
 ## ⤵️ Instalando
 
+Adicionar com **yarn**
 ```
 yarn add @edinelsonslima/toast-notification
 ```
+Adicionar com **npm**
 ```
 npm install @edinelsonslima/toast-notification
 ```
@@ -36,7 +38,7 @@ import { toast } from '@edinelsonslima/toast-notification';
 export default function MyComponent(){
   //seu código
 
-  const examapleToast = () => {
+  const exampleToast = () => {
     toast.success({ text: "Mensagem de exemplo" })
   }
 
@@ -69,23 +71,23 @@ export default function MyComponent(){
 | propriedade |tipo   | é obrigatório   | padrão      |
 |-------------|-------|-----------------|-------------|
 | text        |string | sim             |     -       |
-| type        |string | sim             |     -       | 
+| type        |string | sim             |     -       |
 | duration    |number | não             | 7_0000      |
 | classNames  |object | não             | undefined   |
 | position    |string | não             | right-top   |
 
-ℹ️ O  `durantion` está em ms (milissegundos)
+ℹ️ O  `duration` está em ms (milissegundos)
 
 
 ℹ️ A função `toast` pode ser chamada de duas forma, veja os exemplos a seguir:
 
 caso seja chamada direta, será obrigatório informa o **type**
 ```ts
-toast({ text: "mensagem exemplo", type: "info", durantion: 1000 * 4 })
+toast({ text: "mensagem exemplo", type: "info", duration: 1000 * 4 })
 ```
 ou pode acessar o tipo do toast diretamente, assim omitindo ele do objeto enviado
 ```ts
-toast.info({ text: "mensagem exemplo", durantion: 1000 * 4 })
+toast.info({ text: "mensagem exemplo", durantino: 1000 * 4 })
 ```
 
 
