@@ -1,0 +1,171 @@
+:root {
+  --animation-time: 0.5s;
+}
+
+.toast-container {
+  position: fixed;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 1rem;
+  z-index: 99999999;
+}
+
+.toast-container[data-position="right-top"] {
+  right: 1rem;
+  top: 1rem;
+}
+
+.toast-container[data-position="right-center"] {
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.toast-container[data-position="right-bottom"] {
+  right: 1rem;
+  bottom: 1rem;
+}
+
+.toast-container[data-position="right-top"] .toast-message,
+.toast-container[data-position="right-center"] .toast-message,
+.toast-container[data-position="right-bottom"] .toast-message {
+  animation: screenRightIn var(--animation-time) ease-in-out;
+}
+
+.toast-container[data-position="center-top"] {
+  left: 50%;
+  top: 1rem;
+  transform: translateX(-50%);
+}
+
+.toast-container[data-position="center-center"] {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.toast-container[data-position="center-bottom"] {
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%);
+}
+
+.toast-container[data-position="center-top"] .toast-message,
+.toast-container[data-position="center-bottom"] .toast-message,
+.toast-container[data-position="center-center"] .toast-message {
+  animation: screenCenterIn var(--animation-time) ease-in-out;
+}
+
+.toast-container[data-position="left-top"] {
+  left: 1rem;
+  top: 1rem;
+}
+
+.toast-container[data-position="left-center"] {
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.toast-container[data-position="left-bottom"] {
+  left: 1rem;
+  bottom: 1rem;
+}
+
+.toast-container[data-position="left-top"] .toast-message,
+.toast-container[data-position="left-center"] .toast-message,
+.toast-container[data-position="left-bottom"] .toast-message {
+  animation: screenLeftIn var(--animation-time) ease-in-out;
+}
+
+.toast-message[data-animation-end="true"] {
+  animation: screenOut var(--animation-time) ease-in-out forwards !important;
+}
+
+.toast-message {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 0.2rem;
+  padding: 0.5rem;
+  background: #c2c2c2;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.05);
+
+  border: none;
+  outline: none;
+
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.toast-message:hover {
+  filter: brightness(0.9);
+}
+
+.toast-message:active {
+  filter: brightness(1.1);
+}
+
+.toast-message[data-type="success"] {
+  background: #61d345;
+}
+
+.toast-message[data-type="info"] {
+  background: #4b8aff;
+  color: #ffffff;
+}
+
+.toast-message[data-type="warn"] {
+  background: #ffcc00;
+}
+
+.toast-message[data-type="error"] {
+  background: #ff4b4b;
+  color: #ffffff;
+}
+
+.toast-message[data-type="ghost"] {
+  background: #ffffff;
+}
+
+@keyframes screenRightIn {
+  from {
+    transform: translateX(150%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes screenLeftIn {
+  from {
+    transform: translateX(-150%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes screenCenterIn {
+  from {
+    transform: translateY(-150%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes screenOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
