@@ -1,7 +1,14 @@
-# Toast Notifications
+<h1 align="center">Toast Notifications</h1>
+
+<div align="center">
+  <image src="https://github.com/edinelsonslima/lp-toast-notification/blob/main/lp.gif"/>
+</div>
+
+## 👀 Links
+- 🔗 [Apresentação do toast notification](https://edinelsonslima.github.io/lp-toast-notification/)
+- 🔗 [NPM](https://www.npmjs.com/package/@edinelsonslima/toast-notification)
 
 ## ⤵️ Instalando
-
 Adicionar com **yarn**
 ```
 yarn add @edinelsonslima/toast-notification
