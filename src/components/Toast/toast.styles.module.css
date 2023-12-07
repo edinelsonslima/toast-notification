@@ -108,25 +108,25 @@
   filter: brightness(1.1);
 }
 
-.toast-message[data-type="success"] {
+.success {
   background: #61d345;
 }
 
-.toast-message[data-type="info"] {
+.info {
   background: #4b8aff;
   color: #ffffff;
 }
 
-.toast-message[data-type="warn"] {
+.warn {
   background: #ffcc00;
 }
 
-.toast-message[data-type="error"] {
+.error {
   background: #ff4b4b;
   color: #ffffff;
 }
 
-.toast-message[data-type="ghost"] {
+.ghost {
   background: #ffffff;
 }
 

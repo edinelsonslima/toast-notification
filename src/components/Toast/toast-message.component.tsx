@@ -33,10 +33,11 @@ export default function ToastMessage({
       tabIndex={0}
       onAnimationEnd={handleRemoveMessage}
       onClick={() => setAnimationUnmount(true)}
-      style={getStyle(classNames?.[type])}
-      className={`${s["toast-message"]} ${getClassName(classNames?.[type])}`}
-      data-type={type}
       data-animation-end={animationUnmount}
+      style={getStyle(classNames?.[type])}
+      className={`${s["toast-message"]} ${s[type]} ${getClassName(
+        classNames?.[type]
+      )}`}
     >
       {text}
     </button>
