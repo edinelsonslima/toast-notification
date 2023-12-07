@@ -7,7 +7,7 @@ export interface IToastData extends IToast {
   id: string;
 }
 
-interface IToastContainerProps {
+export interface IToastContainerProps {
   classNames?: {
     [type in IToast["type"]]?: HTMLButtonElement["className"] | CSSProperties;
   };

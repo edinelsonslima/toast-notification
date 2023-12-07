@@ -1,2 +1,5 @@
 export { toast } from "./helpers/toast.helper";
-export { ToastContainer } from "./components/Toast/toast-container.component";
+export {
+  ToastContainer,
+  type IToastContainerProps,
+} from "./components/Toast/toast-container.component";
