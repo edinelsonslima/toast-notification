@@ -7,14 +7,18 @@ import dts from "vite-plugin-dts";
 export default defineConfig({
   plugins: [
     react(),
-    dts({ insertTypesEntry: true, exclude: ["src/app", "index.html"] }),
+    dts({
+      rollupTypes: true,
+      insertTypesEntry: true,
+      exclude: ["src/app"],
+    }),
   ],
   build: {
     lib: {
       entry: path.resolve("src", "index.ts"),
       name: "toast-notification",
-      formats: ["es", "umd"],
-      fileName: (format) => `toast-notification.${format}.js`,
+      formats: ["umd"],
+      fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
       external: ["react", "react-dom"],
