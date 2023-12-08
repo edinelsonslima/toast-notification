@@ -1,40 +1,28 @@
-import React from "react";
+import { ReactNode } from "react";
 import EventManager from "../services/event-manager.service";
+import { toastType } from "./toast-type.helpers";
 
-export interface IToast {
-  content: React.ReactNode;
-  type: "success" | "info" | "warn" | "error" | "ghost";
+export type IReactNode = Omit<ReactNode, "object"> | undefined;
+
+export interface IToastWithoutType {
+  content: IReactNode;
   duration?: number;
 }
 
-type IToastEvents = {
-  "add-toast": IToast;
-};
+export interface IToast extends IToastWithoutType {
+  type: "success" | "info" | "warn" | "error" | "ghost";
+}
 
-export const toastEventManager = new EventManager<IToastEvents>();
+export const toastEventManager = new EventManager<{ "add-toast": IToast }>();
 
 function toast({ duration, content, type }: IToast) {
   toastEventManager.emit("add-toast", { duration, content, type });
 }
 
-toast.error = ({ duration, content }: Omit<IToast, "type">) => {
-  return toast({ duration, content, type: "error" });
-};
-
-toast.success = ({ duration, content }: Omit<IToast, "type">) => {
-  return toast({ duration, content, type: "success" });
-};
-
-toast.warn = ({ duration, content }: Omit<IToast, "type">) => {
-  return toast({ duration, content, type: "warn" });
-};
-
-toast.info = ({ duration, content }: Omit<IToast, "type">) => {
-  return toast({ duration, content, type: "info" });
-};
-
-toast.ghost = ({ duration, content }: Omit<IToast, "type">) => {
-  return toast({ duration, content, type: "ghost" });
-};
+toast.error = toastType("error");
+toast.success = toastType("success");
+toast.warn = toastType("warn");
+toast.info = toastType("info");
+toast.ghost = toastType("ghost");
 
 export { toast };
