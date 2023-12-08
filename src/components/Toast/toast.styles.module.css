@@ -13,17 +13,20 @@
 }
 
 .right-top {
+  align-items: end;
   right: 1rem;
   top: 1rem;
 }
 
 .right-center {
+  align-items: end;
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
 }
 
 .right-bottom {
+  align-items: end;
   right: 1rem;
   bottom: 1rem;
 }
@@ -35,18 +38,21 @@
 }
 
 .center-top {
+  align-items: center;
   left: 50%;
   top: 1rem;
   transform: translateX(-50%);
 }
 
 .center-center {
+  align-items: center;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 }
 
 .center-bottom {
+  align-items: center;
   left: 50%;
   bottom: 1rem;
   transform: translateX(-50%);
@@ -59,17 +65,20 @@
 }
 
 .left-top {
+  align-items: start;
   left: 1rem;
   top: 1rem;
 }
 
 .left-center {
+  align-items: start;
   left: 1rem;
   top: 50%;
   transform: translateY(-50%);
 }
 
 .left-bottom {
+  align-items: start;
   left: 1rem;
   bottom: 1rem;
 }
@@ -85,6 +94,7 @@
   gap: 0.5rem;
   align-items: center;
   justify-content: center;
+  width: min-content;
 
   border-radius: 0.2rem;
   padding: 0.5rem;
@@ -96,6 +106,7 @@
 
   cursor: pointer;
   transition: all 0.5s ease-in-out;
+  font-size: .875rem;
 }
 
 .toast-message:hover {
