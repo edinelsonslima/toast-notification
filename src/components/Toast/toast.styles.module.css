@@ -1,5 +1,7 @@
 :root {
   --animation-time: 0.5s;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .toast-container {
@@ -10,76 +12,72 @@
   z-index: 99999999;
 }
 
-.toast-container[data-position="right-top"] {
+.right-top {
   right: 1rem;
   top: 1rem;
 }
 
-.toast-container[data-position="right-center"] {
+.right-center {
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.toast-container[data-position="right-bottom"] {
+.right-bottom {
   right: 1rem;
   bottom: 1rem;
 }
 
-.toast-container[data-position="right-top"] .toast-message,
-.toast-container[data-position="right-center"] .toast-message,
-.toast-container[data-position="right-bottom"] .toast-message {
+.animation-message-right-top,
+.animation-message-right-center,
+.animation-message-right-bottom {
   animation: screenRightIn var(--animation-time) ease-in-out;
 }
 
-.toast-container[data-position="center-top"] {
+.center-top {
   left: 50%;
   top: 1rem;
   transform: translateX(-50%);
 }
 
-.toast-container[data-position="center-center"] {
+.center-center {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 }
 
-.toast-container[data-position="center-bottom"] {
+.center-bottom {
   left: 50%;
   bottom: 1rem;
   transform: translateX(-50%);
 }
 
-.toast-container[data-position="center-top"] .toast-message,
-.toast-container[data-position="center-bottom"] .toast-message,
-.toast-container[data-position="center-center"] .toast-message {
+.animation-message-center-top,
+.animation-message-center-bottom,
+.animation-message-center-center {
   animation: screenCenterIn var(--animation-time) ease-in-out;
 }
 
-.toast-container[data-position="left-top"] {
+.left-top {
   left: 1rem;
   top: 1rem;
 }
 
-.toast-container[data-position="left-center"] {
+.left-center {
   left: 1rem;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.toast-container[data-position="left-bottom"] {
+.left-bottom {
   left: 1rem;
   bottom: 1rem;
 }
 
-.toast-container[data-position="left-top"] .toast-message,
-.toast-container[data-position="left-center"] .toast-message,
-.toast-container[data-position="left-bottom"] .toast-message {
+.animation-message-left-top,
+.animation-message-left-center,
+.animation-message-left-bottom {
   animation: screenLeftIn var(--animation-time) ease-in-out;
-}
-
-.toast-message[data-animation-end="true"] {
-  animation: screenOut var(--animation-time) ease-in-out forwards !important;
 }
 
 .toast-message {
@@ -128,6 +126,10 @@
 
 .ghost {
   background: #ffffff;
+}
+
+.animation-unmount {
+  animation: screenOut var(--animation-time) ease-in-out forwards;
 }
 
 @keyframes screenRightIn {
