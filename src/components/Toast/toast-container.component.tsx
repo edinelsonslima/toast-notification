@@ -51,7 +51,7 @@ export function ToastContainer({
     return () => {
       toastEventManager.removeListener("add-toast", handleAddToast);
     };
-  }, []);
+  }, [defaultDuration]);
 
   return (
     <div data-position={position} className={s["toast-container"]}>
