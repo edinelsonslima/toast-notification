@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import EventManager from "../services/event-manager.service";
 import { toastType } from "./toast-type.helpers";
+import { toastContentSanitize } from "./toast-content-sanitize.helpers";
 
 export type IReactNode = Omit<ReactNode, "object"> | undefined;
 
@@ -16,7 +17,8 @@ export interface IToast extends IToastWithoutType {
 export const toastEventManager = new EventManager<{ "add-toast": IToast }>();
 
 function toast({ duration, content, type }: IToast) {
-  toastEventManager.emit("add-toast", { duration, content, type });
+  content = toastContentSanitize(content);
+  toastEventManager.emit("add-toast", { content, duration, type });
 }
 
 toast.error = toastType("error");

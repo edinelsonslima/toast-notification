@@ -1,6 +1,5 @@
 import { isValidElement } from "react";
 import { IReactNode, IToast, IToastWithoutType } from "./toast.helper";
-import { toastContentSanitize } from "./toast-content-sanitize.helpers";
 import { toast } from "..";
 
 export function toastType(type: IToast["type"]) {
@@ -10,6 +9,6 @@ export function toastType(type: IToast["type"]) {
     }
 
     const { content, duration } = data as IToastWithoutType;
-    return toast({ content: toastContentSanitize(content), duration, type });
+    return toast({ content, duration, type });
   };
 }
