@@ -39,10 +39,10 @@ export function ToastContainer({
 
   useEffect(() => {
     function handleAddToast(data: IToast) {
-      const { text, type, duration = defaultDuration } = data;
+      const { content, type, duration = defaultDuration } = data;
       setMessages((prevMessages) => [
         ...prevMessages,
-        { id: crypto.randomUUID(), text, duration, type },
+        { id: crypto.randomUUID(), content, duration, type },
       ]);
     }
 

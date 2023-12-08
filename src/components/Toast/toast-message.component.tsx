@@ -13,7 +13,7 @@ interface IToastMessageProps {
 }
 
 export default function ToastMessage({
-  message: { duration = 1000 * 7, id, text, type },
+  message: { duration = 1000 * 7, id, content, type },
   onRemoveMessage,
   classNames,
 }: IToastMessageProps) {
@@ -39,7 +39,7 @@ export default function ToastMessage({
         classNames?.[type]
       )}`}
     >
-      {text}
+      {content}
     </button>
   );
 }
