@@ -12,13 +12,19 @@ export function ToastContainer({
   defaultDuration,
   position = "right-top",
 }: IToastContainerProps) {
+  const customCSSWildcard = classNames?.toastContainer?.["*"];
   const customCSS = classNames?.toastContainer?.[position];
 
   const [messages, setMessages] = useState<IToastData[]>([]);
 
   function handleGetClassNames() {
+    const customClassNamesWildcard = getClassName(customCSSWildcard);
     const customClassNames = getClassName(customCSS);
-    return `${s["toast-container"]} ${s[position]} ${customClassNames}`;
+    return `${s["toast-container"]} ${s[position]} ${customClassNames} ${customClassNamesWildcard}`.trim();
+  }
+
+  function handleGetStyles() {
+    return { ...getStyle(customCSSWildcard), ...getStyle(customCSS) };
   }
 
   const handleRemoveToastMessage = useCallback((id: IToastData["id"]) => {
@@ -44,7 +50,7 @@ export function ToastContainer({
   }, [defaultDuration]);
 
   return (
-    <div style={getStyle(customCSS)} className={handleGetClassNames()}>
+    <div style={handleGetStyles()} className={handleGetClassNames()}>
       {messages.map((message) => (
         <ToastMessage
           key={message.id}

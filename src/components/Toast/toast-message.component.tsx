@@ -16,7 +16,9 @@ export default function ToastMessage({
   onRemoveMessage,
   classNames,
 }: IToastMessageProps) {
+  const customCSSWildcard = classNames?.toastMessages?.["*"];
   const customCSS = classNames?.toastMessages?.[type];
+
   const [animationUnmount, setAnimationUnmount] =
     useState<IClassNamesAnimations>(undefined);
 
@@ -35,10 +37,15 @@ export default function ToastMessage({
   }
 
   function handleGetClassNames() {
+    const customClassNamesWildcard = getClassName(customCSSWildcard);
+    const customClassNames = getClassName(customCSS);
     const unmount = handleGetCustomAnimation();
     const messagePosition = s[`animation-message-${classNames?.toastPosition}`];
-    const customClassNames = getClassName(customCSS);
-    return `${s["toast-message"]} ${s[type]} ${messagePosition} ${unmount} ${customClassNames}`.trim();
+    return `${s["toast-message"]} ${s[type]} ${messagePosition} ${unmount} ${customClassNames} ${customClassNamesWildcard}`.trim();
+  }
+
+  function handleGetStyles() {
+    return { ...getStyle(customCSSWildcard), ...getStyle(customCSS) };
   }
 
   const handleActiveAnimationUnmount = useCallback(() => {
@@ -58,7 +65,7 @@ export default function ToastMessage({
       tabIndex={0}
       onAnimationEnd={handleRemoveMessage}
       onClick={handleActiveAnimationUnmount}
-      style={getStyle(customCSS)}
+      style={handleGetStyles()}
       className={handleGetClassNames()}
     >
       {content as ReactNode}

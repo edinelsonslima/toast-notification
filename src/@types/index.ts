@@ -28,6 +28,10 @@ export type IPositions =
 
 export type IClassNamesAnimations = HTMLSpanElement["className"] | undefined;
 export type IClassNames = IClassNamesAnimations | CSSProperties;
+type IToastMessageClassNames = { [type in IToast["type"] | "*"]?: IClassNames };
+type IToastContainerClassNames = {
+  [position in IPositions | "*"]?: IClassNames;
+};
 
 export interface IToastContainerProps {
   /**
@@ -56,12 +60,12 @@ export interface IToastContainerProps {
      * @description change default position style in screen of the all toasts
      * @default undefined
      */
-    toastContainer?: { [position in IPositions]?: IClassNames };
+    toastContainer?: IToastContainerClassNames;
     /**
      * @description change default style of the all toasts
      * @default undefined
      */
-    toastMessages?: { [type in IToast["type"]]?: IClassNames };
+    toastMessages?: IToastMessageClassNames;
   };
 }
 
@@ -71,6 +75,6 @@ export interface IToastMessageProps {
   classNames?: {
     toastPosition: IPositions;
     animationUnmount?: IClassNamesAnimations;
-    toastMessages?: { [type in IToast["type"]]?: IClassNames };
+    toastMessages?: IToastMessageClassNames;
   };
 }
