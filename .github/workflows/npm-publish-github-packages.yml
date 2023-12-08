@@ -24,16 +24,16 @@ jobs:
         run: npm install
 
       - name: Execute linter
-        run: npm lint
+        run: npm run lint
 
       - name: Build
-        run: npm build
+        run: npm run build
 
       - name: Set Registry
         run: npm set "https://registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}"
 
       - name: Publish to npm
-        run: npm publish
+        run: npm run publish
 
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
