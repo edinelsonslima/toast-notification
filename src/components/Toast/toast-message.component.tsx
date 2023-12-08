@@ -1,55 +1,67 @@
-import { CSSProperties, ReactNode, useEffect, useState } from "react";
-import { IToastData } from "./toast-container.component";
-import s from "./toast.styles.module.css";
+import {
+  ReactNode,
+  AnimationEvent,
+  useCallback,
+  useEffect,
+  useState,
+} from "react";
+import { getClassName, getStyle } from "../../helpers/get-custom-css.helpers";
 
-interface IToastMessageProps {
-  message: IToastData;
-  onRemoveMessage(id: IToastData["id"]): void;
-  classNames?: {
-    [type in IToastData["type"]]?:
-      | HTMLButtonElement["className"]
-      | CSSProperties;
-  };
-}
+import { IClassNamesAnimations, IToastMessageProps } from "../../@types";
+
+import s from "./toast.styles.module.css";
 
 export default function ToastMessage({
   message: { duration = 1000 * 7, id, content, type },
   onRemoveMessage,
   classNames,
 }: IToastMessageProps) {
-  const [animationUnmount, setAnimationUnmount] = useState(false);
+  const customCSS = classNames?.toastMessages?.[type];
+  const [animationUnmount, setAnimationUnmount] =
+    useState<IClassNamesAnimations>(undefined);
 
-  function handleRemoveMessage() {
-    animationUnmount && onRemoveMessage(id);
+  function handleGetCustomAnimation() {
+    return animationUnmount
+      ? s[animationUnmount]
+        ? s[animationUnmount]
+        : animationUnmount
+      : "";
   }
 
+  function handleRemoveMessage(event: AnimationEvent<HTMLSpanElement>) {
+    const unmount = handleGetCustomAnimation();
+    if (!event.currentTarget.classList?.contains(unmount!)) return;
+    onRemoveMessage(id);
+  }
+
+  function handleGetClassNames() {
+    const unmount = handleGetCustomAnimation();
+    const messagePosition = s[`animation-message-${classNames?.toastPosition}`];
+    const customClassNames = getClassName(customCSS);
+    return `${s["toast-message"]} ${s[type]} ${messagePosition} ${unmount} ${customClassNames}`.trim();
+  }
+
+  const handleActiveAnimationUnmount = useCallback(() => {
+    setAnimationUnmount(classNames?.animationUnmount || "animation-unmount");
+  }, [classNames?.animationUnmount]);
+
   useEffect(() => {
-    const timeoutId = setTimeout(() => setAnimationUnmount(true), duration);
+    const timeoutId = setTimeout(() => {
+      return handleActiveAnimationUnmount();
+    }, duration);
+
     return () => clearTimeout(timeoutId);
-  }, [onRemoveMessage, id, duration]);
+  }, [onRemoveMessage, id, duration, handleActiveAnimationUnmount]);
 
   return (
-    <button
+    <span
       tabIndex={0}
       onAnimationEnd={handleRemoveMessage}
-      onClick={() => setAnimationUnmount(true)}
-      data-animation-end={animationUnmount}
-      style={getStyle(classNames?.[type])}
-      className={`${s["toast-message"]} ${s[type]} ${getClassName(
-        classNames?.[type]
-      )}`}
+      onClick={handleActiveAnimationUnmount}
+      style={getStyle(customCSS)}
+      className={handleGetClassNames()}
     >
       {content as ReactNode}
-    </button>
+    </span>
   );
-}
-
-function getStyle(value?: string | object) {
-  if (!value || typeof value !== "object") return;
-  return value;
-}
-
-function getClassName(value?: string | object) {
-  if (!value || typeof value !== "string") return "";
-  return value;
 }
