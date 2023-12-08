@@ -61,35 +61,37 @@ export default function MyComponent(){
 #### O que é disponível com o pacote
 | função             | propriedades                                               |
 |--------------------|------------------------------------------------------------|
-| ToastContainer     | `classNames` `position`                                    |
+| ToastContainer     | `classNames` `position` `defaultDuration`                  |
 | toast              | `text` `type` `duration`                                   |
-| style              | `/dist/style.css`                                   |
+| style              | `/dist/style.css`                                          |
 
 #### As propriedades da função toast
 |propriedade         | toast                                                      |
 |--------------------|----------------------------------------------------------- |
-| text               | A mensagem que aparecerá dentro do toast                   |
+| content            | A conteúdo que aparecerá dentro do toast                   |
 | type               | Define o tipo de toast que é para aparecer                 |
 | duration           | O tempo que o toast irá permanecer em tela                 |
 
 #### As propriedades do componente ToastContainer
 |propriedade         | ToastContainer                                             |
 |--------------------|----------------------------------------------------------- |
-| classNames         | Um objeto de **chave:valor** onde a chave é o tipo de toast e o valor pode ser uma string (classNames) ou um objeto (CSSProperties) |
-| position           | Define em qual parte da tela irá aparecer a toast notification, existe valores predefinidos |
+| classNames         | Um objeto de **chave:valor** onde a chave é o tipo de toast e o valor pode ser uma string (classNames) ou um objeto (CSSProperties)           |
+| position           | Define em qual parte da tela irá aparecer a toast notification, existe valores predefinidos                                         |
+| defaultDuration    | Define tempo padrão de duração de todas as toast           |
 
 #### Mais detalhes sobre as propriedades
-| propriedade |tipo   | é obrigatório   | padrão      |
-|-------------|-------|-----------------|-------------|
-| text        |string | sim             |     -       |
-| type        |string | sim             |     -       |
-| duration    |number | não             | 7_0000      |
-| classNames  |object | não             | undefined   |
-| position    |string | não             | right-top   |
+| propriedade     |tipo     | é obrigatório   | padrão      |
+|-----------------|---------|-----------------|-------------|
+| content         |ReactNode| sim             |     -       |
+| type            |string   | sim             |     -       |
+| duration        |number   | não             | 7_0000      |
+| defaultDuration |number   | não             |     -       |
+| classNames      |object   | não             | undefined   |
+| position        |string   | não             | right-top   |
 
-ℹ️ O  `duration` está em ms (milissegundos)
+ℹ️ O `duration` e `defaultDuration` estão em ms (milissegundos)
 
-ℹ️ A função `toast` pode ser chamada de duas forma, veja os exemplos a seguir:
+ℹ️ A função `toast` pode ser chamada de algumas formas, veja os exemplos a seguir:
 
 caso seja chamada direta, será obrigatório informa o **type**
 ```ts
@@ -98,6 +100,15 @@ toast({ text: "mensagem exemplo", type: "info", duration: 1000 * 4 })
 ou pode acessar o tipo do toast diretamente, assim omitindo ele do objeto enviado
 ```ts
 toast.info({ text: "mensagem exemplo", durantino: 1000 * 4 })
+```
+```ts
+toast.info('mensagem exemplo')
+```
+```tsx
+toast.info(<strong>mensagem exemplo</strong>)
+```
+```tsx
+toast.info(<MeuComponente>mensagem exemplo</MeuComponente>)
 ```
 
 
