@@ -1,35 +1,25 @@
-import { CSSProperties, useCallback, useEffect, useState } from "react";
-import { IToast, toastEventManager } from "../../helpers/toast.helper";
+import { useCallback, useEffect, useState } from "react";
+import { toastEventManager } from "../../helpers/toast.helper";
 import ToastMessage from "./toast-message.component";
+
+import { IToast, IToastData, IToastContainerProps } from "../../@types";
+
 import s from "./toast.styles.module.css";
-
-export interface IToastData extends IToast {
-  id: string;
-}
-
-export interface IToastContainerProps {
-  defaultDuration?: number;
-  classNames?: {
-    [type in IToast["type"]]?: HTMLButtonElement["className"] | CSSProperties;
-  };
-  position?:
-    | "right-top"
-    | "right-center"
-    | "right-bottom"
-    | "center-top"
-    | "center-center"
-    | "center-bottom"
-    | "left-top"
-    | "left-center"
-    | "left-bottom";
-}
+import { getClassName, getStyle } from "../../helpers/get-custom-css.helpers";
 
 export function ToastContainer({
   classNames,
   defaultDuration,
   position = "right-top",
 }: IToastContainerProps) {
+  const customCSS = classNames?.toastContainer?.[position];
+
   const [messages, setMessages] = useState<IToastData[]>([]);
+
+  function handleGetClassNames() {
+    const customClassNames = getClassName(customCSS);
+    return `${s["toast-container"]} ${s[position]} ${customClassNames}`;
+  }
 
   const handleRemoveToastMessage = useCallback((id: IToastData["id"]) => {
     setMessages((prevMessages) =>
@@ -54,13 +44,17 @@ export function ToastContainer({
   }, [defaultDuration]);
 
   return (
-    <div data-position={position} className={s["toast-container"]}>
+    <div style={getStyle(customCSS)} className={handleGetClassNames()}>
       {messages.map((message) => (
         <ToastMessage
           key={message.id}
           message={message}
-          classNames={classNames}
           onRemoveMessage={handleRemoveToastMessage}
+          classNames={{
+            toastPosition: position,
+            toastMessages: classNames?.toastMessages,
+            animationUnmount: classNames?.animationUnmount,
+          }}
         />
       ))}
     </div>
