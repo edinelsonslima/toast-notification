@@ -1,4 +1,4 @@
-import { CSSProperties, useEffect, useState } from "react";
+import { CSSProperties, ReactNode, useEffect, useState } from "react";
 import { IToastData } from "./toast-container.component";
 import s from "./toast.styles.module.css";
 
@@ -39,7 +39,7 @@ export default function ToastMessage({
         classNames?.[type]
       )}`}
     >
-      {content}
+      {content as ReactNode}
     </button>
   );
 }
