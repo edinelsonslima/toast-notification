@@ -46,7 +46,7 @@ export default function MyComponent(){
   //seu código
 
   const exampleToast = () => {
-    toast.success({ text: "Mensagem de exemplo" })
+    toast.success({ content: "Mensagem de exemplo" })
   }
 
   return (
@@ -62,7 +62,7 @@ export default function MyComponent(){
 | função             | propriedades                                               |
 |--------------------|------------------------------------------------------------|
 | ToastContainer     | `classNames` `position` `defaultDuration`                  |
-| toast              | `text` `type` `duration`                                   |
+| toast              | `content` `type` `duration`                                |
 | style              | `/dist/style.css`                                          |
 
 #### As propriedades da função toast
@@ -95,11 +95,11 @@ export default function MyComponent(){
 
 caso seja chamada direta, será obrigatório informa o **type**
 ```ts
-toast({ text: "mensagem exemplo", type: "info", duration: 1000 * 4 })
+toast({ content: "mensagem exemplo", type: "info", duration: 1000 * 4 })
 ```
 ou pode acessar o tipo do toast diretamente, assim omitindo ele do objeto enviado
 ```ts
-toast.info({ text: "mensagem exemplo", durantino: 1000 * 4 })
+toast.info({ content: "mensagem exemplo", durantino: 1000 * 4 })
 ```
 ```ts
 toast.info('mensagem exemplo')
