@@ -1,5 +1,6 @@
 import { isValidElement } from "react";
-import { IReactNode } from "./toast.helper";
+
+import { IReactNode } from "../@types";
 
 export function toastContentSanitize(content?: IReactNode): IReactNode {
   if (!content) return;

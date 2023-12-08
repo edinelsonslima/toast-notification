@@ -1,6 +1,7 @@
 import { isValidElement } from "react";
-import { IReactNode, IToast, IToastWithoutType } from "./toast.helper";
 import { toast } from "..";
+
+import { IToast, IToastWithoutType, IReactNode } from "../@types";
 
 export function toastType(type: IToast["type"]) {
   return function (data: IToastWithoutType | IReactNode) {
