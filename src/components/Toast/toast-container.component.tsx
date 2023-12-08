@@ -8,6 +8,7 @@ export interface IToastData extends IToast {
 }
 
 export interface IToastContainerProps {
+  defaultDuration?: number;
   classNames?: {
     [type in IToast["type"]]?: HTMLButtonElement["className"] | CSSProperties;
   };
@@ -25,6 +26,7 @@ export interface IToastContainerProps {
 
 export function ToastContainer({
   classNames,
+  defaultDuration,
   position = "right-top",
 }: IToastContainerProps) {
   const [messages, setMessages] = useState<IToastData[]>([]);
@@ -36,7 +38,8 @@ export function ToastContainer({
   }, []);
 
   useEffect(() => {
-    function handleAddToast({ text, duration, type }: IToast) {
+    function handleAddToast(data: IToast) {
+      const { text, type, duration = defaultDuration } = data;
       setMessages((prevMessages) => [
         ...prevMessages,
         { id: crypto.randomUUID(), text, duration, type },
