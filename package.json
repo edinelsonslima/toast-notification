@@ -1,6 +1,6 @@
 {
   "name": "@edinelsonslima/toast-notification",
-  "version": "0.1.35",
+  "version": "0.1.36",
   "author": "@edinelsonslima",
   "type": "module",
   "license": "MIT",
@@ -38,7 +38,8 @@
     "vite"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "scripts": {
     "dev": "vite",
