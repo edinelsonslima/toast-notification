@@ -1,92 +1,89 @@
-:root {
-  --animation-time: 0.5s;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-
 .toast-container {
   position: fixed;
   display: flex;
   flex-direction: column-reverse;
   gap: 1rem;
-  z-index: 99999999;
+}
+
+.animation-message-right-top,
+.animation-message-right-center,
+.animation-message-right-bottom {
+  animation: screenRightIn 0.5s ease-in-out;
+}
+
+.right-top,
+.right-center,
+.right-bottom {
+  align-items: end;
+  right: 1rem;
 }
 
 .right-top {
-  align-items: end;
-  right: 1rem;
   top: 1rem;
 }
 
 .right-center {
   align-items: end;
-  right: 1rem;
   top: 50%;
   transform: translateY(-50%);
 }
 
 .right-bottom {
   align-items: end;
-  right: 1rem;
   bottom: 1rem;
-}
-
-.animation-message-right-top,
-.animation-message-right-center,
-.animation-message-right-bottom {
-  animation: screenRightIn var(--animation-time) ease-in-out;
-}
-
-.center-top {
-  align-items: center;
-  left: 50%;
-  top: 1rem;
-  transform: translateX(-50%);
-}
-
-.center-center {
-  align-items: center;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.center-bottom {
-  align-items: center;
-  left: 50%;
-  bottom: 1rem;
-  transform: translateX(-50%);
 }
 
 .animation-message-center-top,
 .animation-message-center-bottom,
 .animation-message-center-center {
-  animation: screenCenterIn var(--animation-time) ease-in-out;
+  animation: screenCenterIn 0.5s ease-in-out;
 }
 
-.left-top {
-  align-items: start;
-  left: 1rem;
+.center-top,
+.center-center,
+.center-bottom {
+  left: 50%;
+  align-items: center;
+  transform: translateX(-50%);
+}
+
+.center-top {
   top: 1rem;
 }
 
-.left-center {
-  align-items: start;
-  left: 1rem;
+.center-center {
   top: 50%;
-  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
 }
 
-.left-bottom {
-  align-items: start;
-  left: 1rem;
+.center-bottom {
   bottom: 1rem;
 }
 
 .animation-message-left-top,
 .animation-message-left-center,
 .animation-message-left-bottom {
-  animation: screenLeftIn var(--animation-time) ease-in-out;
+  animation: screenLeftIn 0.5s ease-in-out;
+}
+
+.left-top,
+.left-center,
+.left-bottom {
+  align-items: start;
+  left: 1rem;
+}
+
+.left-top {
+  top: 1rem;
+}
+
+.left-center {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.left-bottom {
+  bottom: 1rem;
 }
 
 .toast-message {
@@ -95,18 +92,16 @@
   align-items: center;
   justify-content: center;
   width: min-content;
-
   border-radius: 0.2rem;
   padding: 0.5rem;
   background: #c2c2c2;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.05);
-
+  box-shadow: 0 3px 10px #0000001a;
   border: none;
   outline: none;
-
   cursor: pointer;
   transition: all 0.5s ease-in-out;
-  font-size: .875rem;
+  font-size: 0.875rem;
+  z-index: 99999999;
 }
 
 .toast-message:hover {
@@ -123,24 +118,24 @@
 
 .info {
   background: #4b8aff;
-  color: #ffffff;
+  color: #fff;
 }
 
 .warn {
-  background: #ffcc00;
+  background: #fc0;
 }
 
 .error {
   background: #ff4b4b;
-  color: #ffffff;
+  color: #fff;
 }
 
 .ghost {
-  background: #ffffff;
+  background: #fff;
 }
 
 .animation-unmount {
-  animation: screenOut var(--animation-time) ease-in-out forwards;
+  animation: screenOut 0.5s ease-in-out forwards;
 }
 
 @keyframes screenRightIn {
