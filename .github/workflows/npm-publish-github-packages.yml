@@ -27,8 +27,8 @@ jobs:
         run: yarn build
 
       - name: Publish to npm
-        run: |
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}"
+        run:
+          echo ${{ secrets.NPM_AUTH_TOKEN }}
           yarn publish --non-interactive
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
