@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/edinelsonslima/toast-notification.git"
+    "url": "https://github.com/edinelsonslima/toast-notification.git"
   },
   "bugs": {
     "url": "https://github.com/edinelsonslima/toast-notification/issues"
@@ -32,7 +32,8 @@
     "dist"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "dev": "vite",
