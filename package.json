@@ -12,24 +12,26 @@
     "url": "https://github.com/edinelsonslima/toast-notification/issues"
   },
   "homepage": "https://github.com/edinelsonslima/toast-notification#readme",
-  "main": "dist/index.umd.js",
-  "module": "dist/index.umd.js",
-  "browser": "dist/index.umd.js",
-  "types": "dist/index.d.ts",
+  "main": "index.umd.js",
+  "module": "index.umd.js",
+  "browser": "index.umd.js",
+  "types": "index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.umd.js",
-      "require": "./dist/index.umd.js",
-      "browser": "./dist/index.umd.js"
+      "types": "./index.d.ts",
+      "import": "./index.umd.js",
+      "require": "./index.umd.js",
+      "browser": "./index.umd.js"
     },
-    "./dist/style.css": {
-      "import": "./dist/style.css",
-      "require": "./dist/style.css"
+    "./style.css": {
+      "import": "./style.css",
+      "require": "./style.css"
     }
   },
   "files": [
-    "dist"
+    "index.d.ts",
+    "index.umd.js",
+    "style.css"
   ],
   "keywords": [
     "toast",
@@ -40,12 +42,5 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "prepublish": "yarn lint && yarn build",
-    "preview": "vite preview"
   }
 }
