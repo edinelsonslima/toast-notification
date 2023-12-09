@@ -1,46 +1,9 @@
 {
   "name": "@edinelsonslima/toast-notification",
-  "version": "0.1.37",
+  "version": "0.1.41",
   "author": "@edinelsonslima",
   "type": "module",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/edinelsonslima/toast-notification.git"
-  },
-  "bugs": {
-    "url": "https://github.com/edinelsonslima/toast-notification/issues"
-  },
-  "homepage": "https://github.com/edinelsonslima/toast-notification#readme",
-  "main": "dist/index.umd.js",
-  "module": "dist/index.umd.js",
-  "browser": "dist/index.umd.js",
-  "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.umd.js",
-      "require": "./dist/index.umd.js",
-      "browser": "./dist/index.umd.js"
-    },
-    "./dist/style.css": {
-      "import": "./dist/style.css",
-      "require": "./dist/style.css"
-    }
-  },
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "toast",
-    "notification",
-    "react",
-    "vite"
-  ],
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
-  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
