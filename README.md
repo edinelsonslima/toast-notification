@@ -20,11 +20,11 @@ npm install @edinelsonslima/toast-notification
 
 ## 👨🏻‍💻 Modo de usar
 - Adicione o componente `<ToastContainer/>` em algum lugar da sua aplicação;
-- Importe os estilos css de `import '@edinelsonslima/toast-notification/dist/style.css'`;
+- Importe os estilos css de `import '@edinelsonslima/toast-notification/style.css'`;
 
 ```tsx
 import { ToastContainer } from '@edinelsonslima/toast-notification';
-import '@edinelsonslima/toast-notification/dist/style.css';
+import '@edinelsonslima/toast-notification/style.css';
 
 export default function App(){
   //seu código
@@ -63,7 +63,7 @@ export default function MyComponent(){
 |--------------------|------------------------------------------------------------|
 | ToastContainer     | `classNames` `position` `defaultDuration`                  |
 | toast              | `content` `type` `duration`                                |
-| style              | `/dist/style.css`                                          |
+| style              | `/style.css`                                          |
 
 #### As propriedades da função toast
 |propriedade         | toast                                                      |
