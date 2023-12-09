@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column-reverse;
   gap: 1rem;
+  z-index: 999;
 }
 
 .animation-message-right-top,
@@ -100,7 +101,6 @@
   cursor: pointer;
   transition: all 0.5s ease-in-out;
   font-size: 0.875rem;
-  z-index: 99999999;
 }
 
 .toast-message:hover {
