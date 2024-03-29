@@ -79,3 +79,13 @@ export declare namespace toast {
 export declare function ToastContainer({ classNames, defaultDuration, position, }: IToastContainerProps): JSX_2.Element;
 
 export { }
+
+
+declare namespace toast {
+    var error: (data: import("../@types").IReactNode | import("../@types").IToastWithoutType) => void;
+    var success: (data: import("../@types").IReactNode | import("../@types").IToastWithoutType) => void;
+    var warn: (data: import("../@types").IReactNode | import("../@types").IToastWithoutType) => void;
+    var info: (data: import("../@types").IReactNode | import("../@types").IToastWithoutType) => void;
+    var ghost: (data: import("../@types").IReactNode | import("../@types").IToastWithoutType) => void;
+}
+
