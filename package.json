@@ -1,6 +1,6 @@
 {
   "name": "@edinelsonslima/toast-notification",
-  "version": "0.1.42",
+  "version": "0.1.44",
   "author": "@edinelsonslima",
   "type": "module",
   "license": "MIT",
@@ -12,16 +12,16 @@
     "url": "https://github.com/edinelsonslima/toast-notification/issues"
   },
   "homepage": "https://github.com/edinelsonslima/toast-notification#readme",
-  "main": "index.iife.js",
-  "module": "index.iife.js",
-  "browser": "index.iife.js",
+  "main": "index.es.js",
+  "module": "index.es.js",
+  "browser": "index.es.js",
   "types": "index.d.ts",
   "exports": {
     ".": {
       "types": "./index.d.ts",
-      "import": "./index.iife.js",
-      "require": "./index.iife.js",
-      "browser": "./index.iife.js"
+      "import": "./index.es.js",
+      "require": "./index.es.js",
+      "browser": "./index.es.js"
     },
     "./style.css": {
       "import": "./style.css",
@@ -30,7 +30,7 @@
   },
   "files": [
     "index.d.ts",
-    "index.iife.js",
+    "index.es.js",
     "style.css"
   ],
   "keywords": [
