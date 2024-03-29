@@ -12,16 +12,16 @@
     "url": "https://github.com/edinelsonslima/toast-notification/issues"
   },
   "homepage": "https://github.com/edinelsonslima/toast-notification#readme",
-  "main": "index.umd.js",
-  "module": "index.umd.js",
-  "browser": "index.umd.js",
+  "main": "index.iife.js",
+  "module": "index.iife.js",
+  "browser": "index.iife.js",
   "types": "index.d.ts",
   "exports": {
     ".": {
       "types": "./index.d.ts",
-      "import": "./index.umd.js",
-      "require": "./index.umd.js",
-      "browser": "./index.umd.js"
+      "import": "./index.iife.js",
+      "require": "./index.iife.js",
+      "browser": "./index.iife.js"
     },
     "./style.css": {
       "import": "./style.css",
@@ -30,7 +30,7 @@
   },
   "files": [
     "index.d.ts",
-    "index.umd.js",
+    "index.iife.js",
     "style.css"
   ],
   "keywords": [
