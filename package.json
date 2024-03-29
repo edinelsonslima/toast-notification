@@ -1,6 +1,6 @@
 {
   "name": "@edinelsonslima/toast-notification",
-  "version": "0.1.44",
+  "version": "0.1.45",
   "author": "@edinelsonslima",
   "type": "module",
   "license": "MIT",
@@ -29,7 +29,7 @@
     }
   },
   "files": [
-    "index.d.ts",
+    "index.es.d.ts",
     "index.es.js",
     "style.css"
   ],
