@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 echo "Passo 1: Executando o build..."
 npm run build
 
