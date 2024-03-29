@@ -15,10 +15,10 @@
   "main": "index.es.js",
   "module": "index.es.js",
   "browser": "index.es.js",
-  "types": "index.d.ts",
+  "types": "index.es.d.ts",
   "exports": {
     ".": {
-      "types": "./index.d.ts",
+      "types": "./index.es.d.ts",
       "import": "./index.es.js",
       "require": "./index.es.js",
       "browser": "./index.es.js"
