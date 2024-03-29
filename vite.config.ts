@@ -17,7 +17,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve("src", "index.ts"),
       name: "toast.notification",
-      formats: ["iife", ],
+      formats: ["es", ],
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
