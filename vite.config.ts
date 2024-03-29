@@ -1,6 +1,6 @@
+import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
 import dts from "vite-plugin-dts";
 
 // https://vitejs.dev/config/
@@ -16,8 +16,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve("src", "index.ts"),
-      name: "toast-notification",
-      formats: ["umd"],
+      name: "toast.notification",
+      formats: ["iife", ],
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
