@@ -58,7 +58,7 @@ export default function ToastMessage({
     }, duration);
 
     return () => clearTimeout(timeoutId);
-  }, [onRemoveMessage, id, duration, handleActiveAnimationUnmount]);
+  }, [duration, handleActiveAnimationUnmount]);
 
   return (
     <span
