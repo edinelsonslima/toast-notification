@@ -3,7 +3,7 @@ import path from "path";
 import { minify } from 'terser';
 
 async function minifyBuildedFileJs() {
-  const filePath = path.resolve(import.meta.dirname, "dist/index.es.js")
+  const filePath = path.resolve(import.meta.dirname, "lib/dist/index.es.js")
 
   const content = await readFile(filePath, "utf8");
 

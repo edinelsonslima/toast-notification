@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { ToastContainer, toast } from "..";
+import { ToastContainer } from "../components/Toast/toast-container.component";
+import { toast } from "../helpers/toast.helper";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

@@ -8,17 +8,21 @@ export default defineConfig({
   plugins: [
     react(),
     dts({
-      rollupTypes: true,
-      insertTypesEntry: true,
+      // rollupTypes: true,
+      // insertTypesEntry: true,
+      include: ['src'],
       exclude: ["src/app"],
+      outDir: 'lib/dist'
     }),
   ],
   build: {
+    outDir: 'lib/dist',
     lib: {
       entry: path.resolve("src", "index.ts"),
       name: "toast.notification",
-      formats: ["es", ],
+      formats: ["es",],
       fileName: (format) => `index.${format}.js`,
+      cssFileName: 'style'
     },
     rollupOptions: {
       external: ["react", "react-dom"],
