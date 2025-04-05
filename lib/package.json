@@ -1,0 +1,46 @@
+{
+  "name": "@react-bunker/toast-notification",
+  "version": "0.0.1",
+  "author": "@edinelsonslima",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edinelsonslima/toast-notification.git"
+  },
+  "bugs": {
+    "url": "https://github.com/edinelsonslima/toast-notification/issues"
+  },
+  "homepage": "https://github.com/edinelsonslima/toast-notification#readme",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.es.js",
+      "browser": "./dist/index.es.js"
+    },
+    "./style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "toast",
+    "notification",
+    "react",
+    "vite"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}
