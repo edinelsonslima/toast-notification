@@ -1,19 +1,14 @@
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { defineConfig } from "vite";
+import { defineConfig, type Plugin } from "vite";
 import dts from "vite-plugin-dts";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    dts({
-      // rollupTypes: true,
-      // insertTypesEntry: true,
-      include: ['src'],
-      exclude: ["src/app"],
-      outDir: 'lib/dist'
-    }),
+    dts({ include: ['src'], exclude: ["src/app"], outDir: 'lib/dist' }),
+    injectCssAfterBuild()
   ],
   build: {
     outDir: 'lib/dist',
@@ -35,3 +30,11 @@ export default defineConfig({
     },
   },
 });
+
+function injectCssAfterBuild(): Plugin {
+  return {
+    name: 'inject-css',
+    apply: 'build',
+    renderChunk: (code, chunk) => chunk.isEntry ? `import './style.css'; ${code}` : code,
+  }
+}
