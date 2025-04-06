@@ -113,6 +113,7 @@
 
 .success {
   background: #61d345;
+  color: #fff;
 }
 
 .info {
@@ -122,6 +123,7 @@
 
 .warn {
   background: #fc0;
+  color: #fff;
 }
 
 .error {
@@ -131,6 +133,7 @@
 
 .ghost {
   background: #fff;
+  color: #000
 }
 
 .animation-unmount {
