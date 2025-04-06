@@ -9,7 +9,11 @@ export function toastType(type: IToast["type"]) {
       return toast({ content: data, type: type });
     }
 
-    const { content, duration } = data as IToastWithoutType;
-    return toast({ content, duration, type });
+    if (typeof data === 'object') {
+      const { content, duration } = data as IToastWithoutType;
+      return toast({ content, duration, type });
+    }
+
+    return toast({ content: String(data), type })
   };
 }
